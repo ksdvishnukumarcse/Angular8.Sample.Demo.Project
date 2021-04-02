@@ -1,0 +1,12 @@
+<div *ngIf="course">
+    <h2>{{course.name | uppercase | trim}}</h2>
+    <div>
+        <span>ID: </span>{{course.id}}
+    </div>
+    <div>
+        <label>name : <input [(ngModel)]="course.name" placeholder="name"/></label>
+    </div>
+</div>
+
+<label>Update Title: <input value="{{course.name}}" #updateTitle></label>
+<button (click)="updateValue(updateTitle.value)">Update to Parent Component</button>

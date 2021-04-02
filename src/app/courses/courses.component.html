@@ -1,0 +1,17 @@
+<h2>Courses</h2>
+<ul class="test">
+    <ng-container *ngIf="courses.length > 0; else elseBlock">
+        <li *ngFor="let course of courses" [class.selected]="course === selectedCourse"
+        (click)="onSelect(course)" appHighlightElement><span class="badge">{{course.id}}</span>
+        {{course.name}}</li>
+    </ng-container>
+</ul>
+<!-- <div><span>{{course.id}}</span></div>
+<div><label> name:
+    <input [(ngModel)]="course.name" placeholder="name" />
+</label></div> -->
+<app-course-detail [course]="selectedCourse" (updatedCourse)="GetUpdatedValueFromChild($event)" ></app-course-detail>
+
+<ng-template #elseBlock>
+    <h3>No Content</h3>
+</ng-template>
